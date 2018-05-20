@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "389524208500",
+    "firebase_url": "https://diabetibook.firebaseio.com",
+    "project_id": "diabetibook",
+    "storage_bucket": "diabetibook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389524208500:android:648e429522f81eb8",
+        "android_client_info": {
+          "package_name": "com.apps.muskinny.droiddiabetibookonline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389524208500-4ejhprthjib7799tplrkagcqjli4iibs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_i651S3Puqab-J8L8CYZFhNsWv1auSQU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389524208500:android:2e3ff40beeb5b373",
+        "android_client_info": {
+          "package_name": "dev.marcofalanga.com.diabetibook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389524208500-aqn79dbge3p056img9dot7nhd62m2sma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.marcofalanga.com.diabetibook",
+            "certificate_hash": "4f3827b615e54fc8b6b10d1016e52955abd5d042"
+          }
+        },
+        {
+          "client_id": "389524208500-4ejhprthjib7799tplrkagcqjli4iibs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_i651S3Puqab-J8L8CYZFhNsWv1auSQU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389524208500-4ejhprthjib7799tplrkagcqjli4iibs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
