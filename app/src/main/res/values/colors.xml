@@ -11,4 +11,5 @@
     <color name="ButtonHomeColor">@android:color/holo_orange_light</color>
     <color name="bkgColor">#FFFFFF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="ButtonTextColor">#66000000</color>
 </resources>

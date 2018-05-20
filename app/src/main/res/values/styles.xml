@@ -15,4 +15,10 @@
         <item name="android:background">@color/BackgroundHomeColor</item>
     </style>
 
+    <style name="ButtonHome">
+        <item name="android:background">@color/ButtonHomeColor</item>
+        <item name="android:textColor">@color/ButtonTextColor</item>
+        <item name="android:layout_margin">@dimen/marginButtonHome</item>
+    </style>
+
 </resources>
