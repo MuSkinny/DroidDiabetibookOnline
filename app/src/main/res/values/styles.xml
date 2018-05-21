@@ -12,31 +12,56 @@
         <!-- Both of these are needed -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:background">@color/BackgroundHomeColor</item>
+        <item name="colorPrimary">@color/BlueBackgroundColor</item>
+        <item name="colorPrimaryDark">@color/BlueBackgroundColor</item>
+        <item name="android:windowBackground">@color/BlueBackgroundColor</item>
+        <item name="colorAccent">@color/colorYellow</item>
     </style>
 
+
+
     <style name="ButtonHome">
-        <item name="android:background">@color/ButtonHomeColor</item>
+        <item name="android:background">@color/colorYellow</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_margin">@dimen/marginHome</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="EditTextEmail">
+    <style name="inputLayout">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:layout_margin">@dimen/marginHome</item>
-        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <style name="EditTextEmail">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:inputType">textWebEmailAddress</item>
     </style>
 
     <style name="EditTextPassword">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorHint">@android:color/white</item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:layout_margin">@dimen/marginHome</item>
-        <item name="android:inputType">textPassword</item>
+        <item name="android:inputType">textWebPassword</item>
+    </style>
+
+    <style name="EditTextName">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="TextViewHome">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
 
 </resources>
