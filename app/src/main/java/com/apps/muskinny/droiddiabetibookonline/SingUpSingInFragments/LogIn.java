@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.apps.muskinny.droiddiabetibookonline.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LogIn extends Fragment implements View.OnClickListener
@@ -22,7 +27,7 @@ public class LogIn extends Fragment implements View.OnClickListener
     private View view;
     private String lEmail, lPassword;
 
-    static final String TAG = "LogIn Fragment";
+    public static final String TAG = "LogIn Fragment";
 
     public LogIn() {
         // Required empty public constructor
@@ -48,9 +53,9 @@ public class LogIn extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.log_in_fragment, container, false);
 
-        LogInBtn = (Button) view.findViewById(R.id.logIn_button);
-        lEmailEdtxt = (EditText) view.findViewById(R.id.logIn_email);
-        lPasswordEdtxt = (EditText) view.findViewById(R.id.logIn_password);
+        LogInBtn =  view.findViewById(R.id.logIn_button);
+        lEmailEdtxt =  view.findViewById(R.id.logIn_email);
+        lPasswordEdtxt =  view.findViewById(R.id.logIn_password);
 
         LogInBtn.setOnClickListener(this);
 
@@ -63,7 +68,54 @@ public class LogIn extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)
+    {
+        if (v == LogInBtn)
+        {
+            logUserIn();
+        }
+    }
 
+    public void logUserIn()
+    {
+        if (checkParameters())
+        {
+            logInAuth.signInWithEmailAndPassword(lEmail, lPassword)
+                    .addOnCompleteListener(this.getActivity(), new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task)
+                        {
+                            if (!task.isSuccessful())
+                            {
+                                showToast("Authentication failed!");
+                            }
+
+                            if (task.isSuccessful())
+                            {
+                                showToast("Authentication complete!");
+                            }
+
+                        }
+                    });
+        }
+    }
+
+    public boolean checkParameters()
+    {
+        lEmail = lEmailEdtxt.getText().toString().trim();
+        lPassword = lPasswordEdtxt.getText().toString().trim();
+
+        if (TextUtils.isEmpty(lEmail)) {
+            showToast("Enter email address!");
+
+            return false;
+        }
+
+        if (TextUtils.isEmpty(lPassword)) {
+            showToast("Enter password!");
+
+            return false;
+        }
+        return true;
     }
 }

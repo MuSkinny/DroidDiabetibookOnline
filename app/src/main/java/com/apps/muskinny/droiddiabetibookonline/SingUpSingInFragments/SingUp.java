@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.apps.muskinny.droiddiabetibookonline.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,7 +26,9 @@ public class SingUp extends Fragment implements View.OnClickListener
     private EditText rEmailEdtxt, rPasswordEdtxt, rNameEdtxt;
     private View view;
     private String rName, rEmail, rPassword;
+    private TextView openLogIn;
 
+    public static final String TAG = "Register Fragment";
 
     public SingUp()
     {
@@ -52,25 +55,29 @@ public class SingUp extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.sing_up_fragment, container, false);
 
-        registerBtn = (Button) view.findViewById(R.id.register_button);
-        rEmailEdtxt = (EditText) view.findViewById(R.id.r_email);
-        rPasswordEdtxt = (EditText) view.findViewById(R.id.r_password);
-        rNameEdtxt = (EditText) view.findViewById(R.id.r_name);
+        registerBtn =  view.findViewById(R.id.register_button);
+        rEmailEdtxt =  view.findViewById(R.id.r_email);
+        rPasswordEdtxt = view.findViewById(R.id.r_password);
+        rNameEdtxt =  view.findViewById(R.id.r_name);
+        openLogIn =  view.findViewById(R.id.passToLogIn);
+
 
         registerBtn.setOnClickListener(this);
+        openLogIn.setOnClickListener(this);
 
         return view;
     }
 
-    public void loadFragment(Fragment fragment)
+    public void loadFragment(Fragment fragment,String s)
     {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.myFrameLayout, fragment);
+        fragmentTransaction.addToBackStack(s);
         fragmentTransaction.commit();
     }
 
-    public void SingUp()
+    public void SingUserUp()
     {
         if(checkParameters())
         {
@@ -86,11 +93,7 @@ public class SingUp extends Fragment implements View.OnClickListener
                             else if (!task.isSuccessful())
                             {
                                 showToast("Registration failed");
-                                try {
-                                    throw task.getException();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
+
                             }
 
                         }
@@ -139,7 +142,11 @@ public class SingUp extends Fragment implements View.OnClickListener
     {
         if (v == registerBtn)
         {
-            SingUp();
+            SingUserUp();
+        }
+        if (v == openLogIn)
+        {
+            loadFragment(new LogIn(),LogIn.TAG);
         }
     }
 
@@ -147,5 +154,7 @@ public class SingUp extends Fragment implements View.OnClickListener
     {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
+
+
 }
 
