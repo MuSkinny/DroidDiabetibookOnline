@@ -6,10 +6,53 @@
     android:orientation="vertical"
     tools:context=".SingUpSingInFragments.LogIn">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="ll" />
+        android:orientation="vertical"
+        >
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            style="@style/inputLayout"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hintEmail"
+                android:id="@+id/logIn_email"
+                style="@style/EditTextEmail"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/inputLayout"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hintPassword"
+                android:id="@+id/logIn_password"
+                style="@style/EditTextPassword"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LogIn"
+            android:background="@color/colorYellow"
+            style="@style/ButtonHome"
+            android:id="@+id/logIn_button"/>
+
+    </LinearLayout>
 
 </LinearLayout>
