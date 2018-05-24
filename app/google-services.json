@@ -1,27 +1,31 @@
 {
   "project_info": {
-    "project_number": "389524208500",
-    "firebase_url": "https://diabetibook.firebaseio.com",
-    "project_id": "diabetibook",
-    "storage_bucket": "diabetibook.appspot.com"
+    "project_number": "37672391720",
+    "firebase_url": "https://diabetibook2ed.firebaseio.com",
+    "project_id": "diabetibook2ed",
+    "storage_bucket": "diabetibook2ed.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:389524208500:android:648e429522f81eb8",
+        "mobilesdk_app_id": "1:37672391720:android:648e429522f81eb8",
         "android_client_info": {
           "package_name": "com.apps.muskinny.droiddiabetibookonline"
         }
       },
       "oauth_client": [
         {
-          "client_id": "389524208500-4ejhprthjib7799tplrkagcqjli4iibs.apps.googleusercontent.com",
+          "client_id": "37672391720-9ca6tjv6esuv5iafh9h6rh2d19clvp06.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "37672391720-9ca6tjv6esuv5iafh9h6rh2d19clvp06.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB_i651S3Puqab-J8L8CYZFhNsWv1auSQU"
+          "current_key": "AIzaSyCJCoBn-v0L_S3M9SFPhpbmsUgyRE9QJyM"
         }
       ],
       "services": {
@@ -31,50 +35,6 @@
         "appinvite_service": {
           "status": 1,
           "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:389524208500:android:2e3ff40beeb5b373",
-        "android_client_info": {
-          "package_name": "dev.marcofalanga.com.diabetibook"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "389524208500-aqn79dbge3p056img9dot7nhd62m2sma.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "dev.marcofalanga.com.diabetibook",
-            "certificate_hash": "4f3827b615e54fc8b6b10d1016e52955abd5d042"
-          }
-        },
-        {
-          "client_id": "389524208500-4ejhprthjib7799tplrkagcqjli4iibs.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB_i651S3Puqab-J8L8CYZFhNsWv1auSQU"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "389524208500-4ejhprthjib7799tplrkagcqjli4iibs.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
         },
         "ads_service": {
           "status": 2
