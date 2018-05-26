@@ -1,6 +1,7 @@
 package com.apps.muskinny.droiddiabetibookonline.FirebaseDataModelling;
 
 public class User {
+    
     final static String USERS = "users";
 
     private String email;
