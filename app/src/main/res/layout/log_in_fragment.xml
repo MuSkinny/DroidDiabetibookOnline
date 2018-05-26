@@ -4,55 +4,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="@dimen/marginHome"
+
     tools:context=".SingUpSingInFragments.LogIn">
 
-    <LinearLayout
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/marginHome"
+        card_view:cardBackgroundColor="@color/BckGrndCardView"
+        card_view:cardCornerRadius="@dimen/CardviewCornerRadius"
+        card_view:cardMaxElevation="@dimen/cardview_compat_inset_shadow">
 
-
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            style="@style/inputLayout"
-            >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <EditText
+
+            <android.support.design.widget.TextInputLayout
+                style="@style/inputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hintEmail"
-                android:id="@+id/logIn_email"
-                style="@style/EditTextEmail"/>
+                android:orientation="vertical">
 
-        </android.support.design.widget.TextInputLayout>
+                <EditText
+                    android:id="@+id/logIn_email"
+                    style="@style/EditTextEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hintEmail" />
+
+            </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/inputLayout"
-            >
-            <EditText
+            <android.support.design.widget.TextInputLayout
+                style="@style/inputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/logIn_password"
+                    style="@style/EditTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hintPassword" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/logIn_button"
+                style="@style/ButtonHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hintPassword"
-                android:id="@+id/logIn_password"
-                style="@style/EditTextPassword"/>
+                android:background="@drawable/button_login_register"
+                android:text="@string/LogIn" />
 
-        </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:id="@+id/passToRegister"
+                style="@style/TextViewHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/toRegister" />
 
+        </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/LogIn"
-            android:background="@color/colorYellow"
-            style="@style/ButtonHome"
-            android:id="@+id/logIn_button"/>
-
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

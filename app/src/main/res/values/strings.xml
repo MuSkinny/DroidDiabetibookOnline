@@ -9,5 +9,6 @@
     <string name="hintEmail">Email</string>
     <string name="hintPassword">Password</string>
     <string name="tologIn">Do you already have an account?\nClick here and Log In</string>
+    <string name="toRegister">Don\'t you have an account?\nClick here and Sign Up</string>
 
 </resources>
