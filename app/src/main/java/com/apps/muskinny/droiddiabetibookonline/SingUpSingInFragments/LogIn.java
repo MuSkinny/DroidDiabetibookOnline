@@ -1,5 +1,7 @@
 package com.apps.muskinny.droiddiabetibookonline.SingUpSingInFragments;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apps.muskinny.droiddiabetibookonline.R;
@@ -26,8 +29,8 @@ public class LogIn extends Fragment implements View.OnClickListener
     private EditText lEmailEdtxt, lPasswordEdtxt;
     private View view;
     private String lEmail, lPassword;
-
-    public static final String TAG = "LogIn Fragment";
+    public static final String TAG = "LOGIN_FRAGMENT";
+    private TextView toRegister;
 
     public LogIn() {
         // Required empty public constructor
@@ -56,8 +59,10 @@ public class LogIn extends Fragment implements View.OnClickListener
         LogInBtn =  view.findViewById(R.id.logIn_button);
         lEmailEdtxt =  view.findViewById(R.id.logIn_email);
         lPasswordEdtxt =  view.findViewById(R.id.logIn_password);
+        toRegister = view.findViewById(R.id.passToRegister);
 
         LogInBtn.setOnClickListener(this);
+        toRegister.setOnClickListener(this);
 
         return view;
     }
@@ -73,6 +78,12 @@ public class LogIn extends Fragment implements View.OnClickListener
         if (v == LogInBtn)
         {
             logUserIn();
+        }
+
+        if (v == toRegister) {
+            //control back cycle
+            loadFragment(new SingUp(), SingUp.TAG);
+
         }
     }
 
@@ -117,5 +128,13 @@ public class LogIn extends Fragment implements View.OnClickListener
             return false;
         }
         return true;
+    }
+
+    public void loadFragment(Fragment fragment, String s) {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.myFrameLayout, fragment);
+        fragmentTransaction.addToBackStack(s);
+        fragmentTransaction.commit();
     }
 }

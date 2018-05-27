@@ -9,38 +9,47 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.apps.muskinny.droiddiabetibookonline.FirebaseDataModelling.User;
 import com.apps.muskinny.droiddiabetibookonline.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SingUp extends Fragment implements View.OnClickListener
 {
     private FirebaseAuth registerAuth;
+    public static final String TAG = "REGISTER_FRAGMENT";
     private Button registerBtn;
     private EditText rEmailEdtxt, rPasswordEdtxt, rNameEdtxt;
     private View view;
     private String rName, rEmail, rPassword;
     private TextView openLogIn;
-
-    public static final String TAG = "Register Fragment";
+    private DatabaseReference mDbRef;
+    private Spinner genderSpinner;
+    private ArrayAdapter<CharSequence> spinner_adapter;
 
     public SingUp()
     {
         // Required empty public constructor
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         registerAuth = FirebaseAuth.getInstance();
+        mDbRef = FirebaseDatabase.getInstance().getReference();
+
         if (registerAuth.getCurrentUser() != null)
         {
             //open UserActivity
@@ -60,6 +69,12 @@ public class SingUp extends Fragment implements View.OnClickListener
         rPasswordEdtxt = view.findViewById(R.id.r_password);
         rNameEdtxt =  view.findViewById(R.id.r_name);
         openLogIn =  view.findViewById(R.id.passToLogIn);
+        genderSpinner = view.findViewById(R.id.gender_spinner);
+
+        spinner_adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.gender_array, android.R.layout.simple_spinner_dropdown_item);
+        spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        genderSpinner.setAdapter(spinner_adapter);
 
 
         registerBtn.setOnClickListener(this);
@@ -89,6 +104,7 @@ public class SingUp extends Fragment implements View.OnClickListener
                             if(task.isSuccessful())
                             {
                                 showToast("Registration Completed!");
+                                createNewUser(task.getResult().getUser().getUid(), rEmail, rName);
                             }
                             else if (!task.isSuccessful())
                             {
@@ -153,6 +169,11 @@ public class SingUp extends Fragment implements View.OnClickListener
     public void showToast(String message)
     {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+    }
+
+    private void createNewUser(String _userid, String _email, String _name) {
+        User mUser = new User(_userid, _email, _name);
+        mDbRef.child(User.USERS).child(_userid).setValue(mUser);
     }
 
 
