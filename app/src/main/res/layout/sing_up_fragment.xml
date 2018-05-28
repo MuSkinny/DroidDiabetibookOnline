@@ -116,13 +116,13 @@
 
         </LinearLayout>
 
-        <ImageView
+       <!-- <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_margin="@dimen/marginHome"
             android:contentDescription=""
-            android:src="@drawable/blood_drop_icon" />
+            android:src="@drawable/blood_drop_icon" />-->
     </android.support.v7.widget.CardView>
 
 
