@@ -3,12 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
-
-    <color name="BackgroundHomeColor">#123</color>
+    <color name="transparent">#00000000</color>
+    <color name="BlueBackgroundColor">#123</color>
     <color name="boh">#123344</color>
     <color name="text">#FFFF</color>
-    <color name="ButtonHomeColor">@android:color/holo_orange_light</color>
+    <color name="colorYellow">@android:color/holo_orange_light</color>
     <color name="bkgColor">#FFFFFF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="BlackTextColor">#66000000</color>
+    <color name="BckGrndCardView">#123456</color>
 </resources>

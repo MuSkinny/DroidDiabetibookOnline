@@ -3,5 +3,17 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="SingUP">Register/Sing Up</string>
+    <string name="SingUP">Register / Sing Up</string>
+    <string name="LogIn">Log In</string>
+    <string name="hintName">Full name</string>
+    <string name="hintAge">Age</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
+    <string name="tologIn">Do you already have an account?\nClick here and Log In</string>
+    <string name="toRegister">Don\'t you have an account?\nClick here and Sign Up</string>
+    <string-array name="gender_array">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
 </resources>

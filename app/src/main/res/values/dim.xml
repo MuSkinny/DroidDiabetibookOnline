@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="marginHome">8dp</dimen>
+    <dimen name="CardviewCornerRadius">15dp</dimen>
+    <dimen name="button_radius">15dp</dimen>
+
+
+</resources>
