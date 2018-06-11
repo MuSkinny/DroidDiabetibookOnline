@@ -15,5 +15,7 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string name="forgotPassword">Forgot your password?</string>
+
 
 </resources>
