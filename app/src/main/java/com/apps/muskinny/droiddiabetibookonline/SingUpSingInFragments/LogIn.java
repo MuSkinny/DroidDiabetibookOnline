@@ -3,6 +3,7 @@ package com.apps.muskinny.droiddiabetibookonline.SingUpSingInFragments;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apps.muskinny.droiddiabetibookonline.R;
+import com.apps.muskinny.droiddiabetibookonline.UserMain;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -103,6 +105,8 @@ public class LogIn extends Fragment implements View.OnClickListener
 
                             if (task.isSuccessful())
                             {
+                                Intent toUser = new Intent(getActivity(), UserMain.class);
+                                startActivity(toUser);
                                 showToast("Authentication complete!");
                             }
 
