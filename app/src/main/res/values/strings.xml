@@ -3,7 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="SingUP">Register / Sing Up</string>
+    <string name="SingUP">Sing Up</string>
     <string name="LogIn">Log In</string>
     <string name="hintName">Full name</string>
     <string name="hintAge">Age</string>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main">
+
+    <!--<android.support.v7.widget.Toolbar
+        android:id="@+id/card_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/BlueBackgroundColor" />-->
+
+
+    <FrameLayout
+        android:id="@+id/myFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
+    </FrameLayout>
+
+    <TextView
+        style="@style/textViewFPsw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:text="INFO" />
+
+
+</LinearLayout>

@@ -4,6 +4,8 @@
     <dimen name="marginHome">8dp</dimen>
     <dimen name="CardviewCornerRadius">15dp</dimen>
     <dimen name="button_radius">15dp</dimen>
+    <dimen name="IconSize">50dp</dimen>
+    <dimen name="marginView">4dp</dimen>
 
 
 </resources>

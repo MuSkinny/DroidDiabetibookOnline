@@ -2,9 +2,8 @@ package com.apps.muskinny.droiddiabetibookonline.SingUpSingInFragments;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.NonNull;
@@ -24,15 +23,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LogIn extends Fragment implements View.OnClickListener
-{
+public class LogIn extends Fragment implements View.OnClickListener {
     private FirebaseAuth logInAuth;
     private Button LogInBtn;
     private EditText lEmailEdtxt, lPasswordEdtxt;
     private View view;
     private String lEmail, lPassword;
     public static final String TAG = "LOGIN_FRAGMENT";
-    private TextView toRegister;
+    private TextView toRegister, forgotPassword;
 
     public LogIn() {
         // Required empty public constructor
@@ -40,28 +38,30 @@ public class LogIn extends Fragment implements View.OnClickListener
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         logInAuth = FirebaseAuth.getInstance();
-        if (logInAuth.getCurrentUser() != null)
-        {
-            //open UserActivity
-            showToast("Logged in");
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.log_in_fragment, container, false);
+        view = inflater.inflate(R.layout.log_in, container, false);
 
-        LogInBtn =  view.findViewById(R.id.logIn_button);
-        lEmailEdtxt =  view.findViewById(R.id.logIn_email);
-        lPasswordEdtxt =  view.findViewById(R.id.logIn_password);
+        LogInBtn = view.findViewById(R.id.logIn_button);
+        lEmailEdtxt = view.findViewById(R.id.logIn_email);
+        lPasswordEdtxt = view.findViewById(R.id.logIn_password);
         toRegister = view.findViewById(R.id.passToRegister);
+        forgotPassword = view.findViewById(R.id.txtForgotPassword);
+
+        //change these in buttons and make something like link
+        toRegister.setPaintFlags(toRegister.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        toRegister.setText(R.string.toRegister);
+        forgotPassword.setPaintFlags(forgotPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        forgotPassword.setText(R.string.forgotPassword);
 
         LogInBtn.setOnClickListener(this);
         toRegister.setOnClickListener(this);
@@ -69,16 +69,13 @@ public class LogIn extends Fragment implements View.OnClickListener
         return view;
     }
 
-    public void showToast(String message)
-    {
+    public void showToast(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void onClick(View v)
-    {
-        if (v == LogInBtn)
-        {
+    public void onClick(View v) {
+        if (v == LogInBtn) {
             logUserIn();
         }
 
@@ -89,22 +86,17 @@ public class LogIn extends Fragment implements View.OnClickListener
         }
     }
 
-    public void logUserIn()
-    {
-        if (checkParameters())
-        {
+    public void logUserIn() {
+        if (checkParameters()) {
             logInAuth.signInWithEmailAndPassword(lEmail, lPassword)
                     .addOnCompleteListener(this.getActivity(), new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onComplete(@NonNull Task<AuthResult> task)
-                        {
-                            if (!task.isSuccessful())
-                            {
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (!task.isSuccessful()) {
                                 showToast("Authentication failed!");
                             }
 
-                            if (task.isSuccessful())
-                            {
+                            if (task.isSuccessful()) {
                                 Intent toUser = new Intent(getActivity(), UserMain.class);
                                 startActivity(toUser);
                                 showToast("Authentication complete!");
@@ -115,8 +107,7 @@ public class LogIn extends Fragment implements View.OnClickListener
         }
     }
 
-    public boolean checkParameters()
-    {
+    public boolean checkParameters() {
         lEmail = lEmailEdtxt.getText().toString().trim();
         lPassword = lPasswordEdtxt.getText().toString().trim();
 
@@ -133,6 +124,7 @@ public class LogIn extends Fragment implements View.OnClickListener
         }
         return true;
     }
+
 
     public void loadFragment(Fragment fragment, String s) {
         FragmentManager fm = getFragmentManager();

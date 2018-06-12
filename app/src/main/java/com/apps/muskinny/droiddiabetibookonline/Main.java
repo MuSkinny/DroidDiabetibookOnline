@@ -1,10 +1,9 @@
 package com.apps.muskinny.droiddiabetibookonline;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 
@@ -13,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class Main extends AppCompatActivity
+public class Main extends FragmentActivity
 {
     private FirebaseAuth mainAuth;
     private FirebaseUser mainUser;
@@ -22,7 +21,7 @@ public class Main extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_l);
+        setContentView(R.layout.main_);
         //oadFragment(new SingUp(), SingUp.TAG);
 
         mainAuth = FirebaseAuth.getInstance();
@@ -34,8 +33,8 @@ public class Main extends AppCompatActivity
 
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        //fragmentTransaction.replace(R.id.myFrameLayout, new SingUp());
-        fragmentTransaction.add(R.id.myFrameLayout, new SingUp());
+        fragmentTransaction.replace(R.id.myFrameLayout, new SingUp());
+        //fragmentTransaction.add(R.id.myFrameLayout, new SingUp());
         fragmentTransaction.commit();
 
     }

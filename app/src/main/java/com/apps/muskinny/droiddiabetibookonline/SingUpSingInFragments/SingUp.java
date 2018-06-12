@@ -53,13 +53,6 @@ public class SingUp extends Fragment implements View.OnClickListener {
         registerAuth = FirebaseAuth.getInstance();
         mDbRef = FirebaseDatabase.getInstance().getReference();
 
-        if (registerAuth.getCurrentUser() != null) {
-            Intent toActivityUser = new Intent(this.getActivity(), UserMain.class);
-            startActivity(toActivityUser);
-            showToast("Logged in");
-
-        }
-
     }
 
     @Override
