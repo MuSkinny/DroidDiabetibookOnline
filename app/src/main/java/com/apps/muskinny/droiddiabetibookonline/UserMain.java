@@ -1,13 +1,19 @@
 package com.apps.muskinny.droiddiabetibookonline;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toolbar;
 
 import com.apps.muskinny.droiddiabetibookonline.UserFragments.AddDialog;
 import com.apps.muskinny.droiddiabetibookonline.UserFragments.UserHome;
@@ -18,6 +24,9 @@ public class UserMain extends FragmentActivity implements View.OnClickListener {
     private FirebaseAuth muAuth;
     private FirebaseUser muUser;
     private FloatingActionButton openAddDialog;
+    private Toolbar mToolbar;
+    private ImageButton openDrawer;
+    private DrawerLayout userDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +35,24 @@ public class UserMain extends FragmentActivity implements View.OnClickListener {
 
         muAuth = FirebaseAuth.getInstance();
         muUser = muAuth.getCurrentUser();
+        /*mToolbar = findViewById(R.id.userToolbar);
+        setActionBar(mToolbar);
+        mToolbar.setTitle(null);*/
+
+        userDrawerLayout = findViewById(R.id.user_drawer);
+
         if (muUser == null) {
             Intent toMain = new Intent(this, Main.class);
             startActivity(toMain);
         }
 
         openAddDialog = findViewById(R.id.open_add_dialog);
+        openDrawer = findViewById(R.id.open_drawer);
+
+        openDrawer.setOnClickListener(this);
         openAddDialog.setOnClickListener(this);
 
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.userLayout, new UserHome());
         //fragmentTransaction.add(R.id.myFrameLayout, new SingUp());
@@ -56,12 +74,15 @@ public class UserMain extends FragmentActivity implements View.OnClickListener {
         if (v == openAddDialog) {
             showAddDialog();
         }
+        if (v == openDrawer) {
+            userDrawerLayout.openDrawer(Gravity.START);
+        }
 
     }
 
     public void showAddDialog() {
         AddDialog addDialog = new AddDialog();
-        addDialog.show(getFragmentManager(), "ADDDIALOG");
+        addDialog.show(getSupportFragmentManager(), "ADDDIALOG");
 
     }
 

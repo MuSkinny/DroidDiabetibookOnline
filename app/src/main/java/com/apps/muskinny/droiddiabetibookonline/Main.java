@@ -1,7 +1,8 @@
 package com.apps.muskinny.droiddiabetibookonline;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class Main extends FragmentActivity
             startActivity(toActivityUser);
         }
 
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.myFrameLayout, new SingUp());
         //fragmentTransaction.add(R.id.myFrameLayout, new SingUp());

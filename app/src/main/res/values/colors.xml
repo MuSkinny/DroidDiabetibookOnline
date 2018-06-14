@@ -12,4 +12,7 @@
     <color name="black_overlay">#66000000</color>
     <color name="BlackTextColor">#66000000</color>
     <color name="BckGrndCardView">#123456</color>
+    <color name="color_lay_drawer">#214262</color>
+
+
 </resources>

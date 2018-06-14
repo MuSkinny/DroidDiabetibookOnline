@@ -16,6 +16,11 @@
         <item>Female</item>
     </string-array>
     <string name="forgotPassword">Forgot your password?</string>
+    <string name="LogOut">Log out</string>
+    <string name="HelpMe">Do you need help?</string>
+    <string name="List_string">List</string>
+    <string name="Home_string">Home</string>
+    <string name="Graph_string">Graph</string>
 
 
 </resources>
